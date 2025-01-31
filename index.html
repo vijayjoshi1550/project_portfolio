@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile-Vijay Joshi</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #1c5ba1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header h2 {
+            margin: 5px 0 0;
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .home-container {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+            justify-content: flex-start; /* Ensure no centering */
+        }
+
+        .home-content {
+            flex: 1;
+            padding-right: 20px; /* Space between content and image */
+            text-align: left; /* Align text to the left */
+            line-height: 1.75; /* Set line spacing to 1.5 */
+        }
+
+        .home-content {
+            flex: 1;
+            padding-right: 20px; /* Space between content and image */
+            text-align: left; /* Align text to the left */
+            line-height: 1.75; /* Set line spacing to 1.5 */
+        }
+
+        .name-heading{
+            font-size: 2em;
+            margin: 0; /* Remove extra space below the heading */
+            line-height: 1.35;
+        }
+
+        .name-subheading{
+            font-size: 1em;
+            margin: 0; /* Adjust spacing if needed */
+            font-style: italic; /* Optional: italicize the text */
+            color: gray; /* Optional: set a different color */
+        }
+
+        .profile-image {
+            max-width: 280px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 50%; /* Optional for rounded image */
+        }
+
+
+        .sidebar {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            position: relative;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            flex-direction: column;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #444;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #444;
+        }
+
+        .sidebar .menu-toggle {
+            display: block;
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content section {
+            display: none;
+        }
+
+        .content section.active {
+            display: block;
+        }
+
+        .topic-heading {
+            display: block;
+            margin-block-start: 1.33em;
+            margin-block-end: 0.3em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            unicode-bidi: isolate;
+            font-size: 18px;
+        }
+
+        .topic-value {
+            display: block;
+            margin-block-start: 0em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            unicode-bidi: isolate;
+            font-size: 16px;
+        }
+
+        .topic-value-info{
+            font-size: 1em;
+            margin: 0; /* Adjust spacing if needed */
+            color: gray; /* Optional: set a different color */
+        }
+
+
+
+        @media (min-width: 768px) {
+            .container {
+                flex-wrap: nowrap;
+            }
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .sidebar ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sidebar ul li {
+                text-align: left;
+            }
+
+            .sidebar .menu-toggle {
+                display: none;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1c5ba1;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.sidebar ul');
+            const links = document.querySelectorAll('.sidebar ul li a');
+            const sections = document.querySelectorAll('.content section');
+
+            menuToggle.addEventListener('click', () => {
+                if (menu.style.display === 'flex') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'flex';
+                    menu.style.flexDirection = 'column';
+                }
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = link.getAttribute('data-target');
+
+                    sections.forEach(section => {
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Vijay Joshi</h1>
+        <h2>Master of Science, Physics</h2>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-toggle">☰ Menu</div>
+            <ul>
+                <li><a href="#" data-target="home">Home&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
+                <li><a href="#" data-target="bio-sketch">Bio-Sketch&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
+                <li><a href="#" data-target="publications">Certifications&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
+                <li><a href="#" data-target="projects">Projects&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
+                <li><a href="#" data-target="contact">Contact&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
+            </ul>
+        </div>
+
+        <div class="content" >
+            <section id="home" class="active">
+                <div class="home-container">
+                    <div class="home-content">
+                        <h1 class="name-heading">Vijay Joshi</h1>
+                        <p class="name-subheading">Master of Science, Physics</p>
+                        <h4 class="topic-heading">Research Interests</h4>
+                        <p class="topic-value">
+                            <b>‣</b> Quantum Technologies
+                            <br>
+                            <b>‣</b> Photonic Applications
+                        </p>
+                        <h4 class="topic-heading">Academic Background</h4>
+                        <p class="topic-value">
+                            <b>‣</b> Bachelor of Science
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp; 
+                                <span style="font-size: 1em; margin: 0; font-style: italic; color: gray;">
+                                    <b>Subjects:</b> 
+                                    Physics, Mathematics, Computer Science
+                                </span>
+                            <br>
+                            <b>‣</b> Master of Science, Physics
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="font-size: 1em; margin: 0; font-style: italic; color: gray;">
+                                <b>Specialization:</b> 
+                                Electronics
+                            </span>
+                        </p>
+                    </div>
+                    <img src="vijay.png" alt="Vijay Joshi" class="profile-image">
+                </div>                
+            </section>
+            <section id="bio-sketch">
+                <div class="home-container">
+                <div class="home-content">
+                    <h1 class="name-heading">Vijay Joshi</h1>
+                    <p class="name-subheading">Master of Science, Physics</p>
+                    <h4 class="topic-heading">Description</h4>
+                    <p class="topic-value" style="text-align: justify;">
+                        Vijay Joshi holds an M.Sc. in Physics with a specialization in Electronics, with expertise spanning electronics, spectroscopy, optics, and quantum mechanics.
+                        <br>
+                        His technical proficiency includes <b>certifications in Python, Quantum Computing</b>, along with <b>skills in Machine learning, Neural networks and Quantum programming</b>, complemented by foundational knowledge of <b>Quantum machine learning.</b> 
+                    <br>
+                    Combining a strong physics foundation with computational expertise, Vijay is driven by a passion for exploring interdisciplinary solutions in emerging technological fields.
+                    </p>
+                </div>
+                    <img src="vijay.png" alt="Vijay Joshi" class="profile-image">
+                </div>
+            </section>
+            <section id="publications">
+                <div class="home-container">
+                    <div class="home-content">
+                        <h1 class="name-heading">Vijay Joshi</h1>
+                        <p class="name-subheading">Master of Science, Physics</p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Introductory Course on Quantum Computing
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <span style="font-style: italic; color: gray;">
+                                <b> Organized By: </b>
+                                I-HUB QTF, IISER-PUNE
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="https://drive.google.com/file/d/12Uuy1qAO3qIXrZgHPORPthe7AmOQtnbc/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Click Here to Verify</a>
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            100 Days of Code: The Complete Python Pro Bootcamp for 2022
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <span style="font-style: italic; color: gray;">
+                                <b> Udemy Instructor: </b>
+                             
+                                Dr. Angela Yu
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="https://www.udemy.com/certificate/UC-c5ce9839-444c-4b81-a31b-4cc7f713383b/" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Click Here to Verify</a>
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Verilog HDL Fundamentals for Digital Design and Verification
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <span style="font-style: italic; color: gray;">
+                                <b> Udemy Instructor: </b>
+                             
+                                Ovidiu Plugariu
+                            </span>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="https://www.udemy.com/certificate/UC-71b885c6-7c4a-415d-8b83-4bf1d6e282aa/" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Click Here to Verify</a>
+                        </p>
+                        
+                    </div>
+                        <img src="vijay.png" alt="Vijay Joshi" class="profile-image">
+                    </div>
+            </section>
+            <section id="projects">
+                <div class="home-container">
+                    <div class="home-content">
+                        <h1 class="name-heading">Vijay Joshi</h1>
+                        <p class="name-subheading">Master of Science, Physics</p>
+                        <!-- <h4 class="topic-heading">Projects in Classical and Quantum Programming</h4> -->
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Classification of Retinal OCT Scan Images (optical coherence tomography) using Convolution Neural Network (CNN)
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="https://drive.google.com/file/d/1NVnynzJL-MG8bD8YJBcUaMUzWUUHYcyJ/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Project Report</a>
+                            <a href="https://colab.research.google.com/drive/13zHDtCU9q8VsS3LwYvbtuBbWb2ztlimE?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Source Code</a>
+                            <!-- <a href="https://drive.google.com/file/d/1wdsWQ7IudFBOOJZrjmcWgSG1eMJd34Cw/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Description</a> -->
+                            <a href="live-link" style="text-decoration: none; color: blue; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>See Live</a>
+
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Spectrum Analysis of LIBS Dataset on Potatoes using Artificial Neural Networks (ANN)
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="https://drive.google.com/file/d/1Fx0DRECC_9OzLRE47M8epSZ3LbGz97lm/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Project Report</a>
+                            <a href="https://colab.research.google.com/drive/1qTd2dESWbzYrTOMY54PTOmDv1bgE8Hdu?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Source Code</a>
+                            <!-- <a href="https://drive.google.com/file/d/1Wr5YO2YGAOjxwbhvi1tvEmJ6GE7ehnGC/view?usp=drive_link" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Description</a> -->
+                            <a href="live-link" style="text-decoration: none; color: blue; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>See Live</a>
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Visualization and Implementation of Quantum Gates using Qiskit and tkinter
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="project-report-link" style="text-decoration: none; color: blue; margin-right: 10px; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>Project Report</a>
+                            <a href="source-code-link" style="text-decoration: none; color: blue; margin-right: 10px; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>Source Code</a>
+                            <!-- <a href="description-link" style="text-decoration: none; color: blue; margin-right: 10px; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>Description</a> -->
+                            <a href="live-link" style="text-decoration: none; color: blue; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>See Live</a>
+                        </p>
+                        
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Classification of an Asteroid whether it is hazardous or not, using an XGBoost classifier (XGBClassifier)
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="https://drive.google.com/file/d/1gRwTR5OZ24OUC0y4t9N3GAvISTb_XCA_/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Project Report</a>
+                            <a href="https://colab.research.google.com/drive/1Y6CNhGOQOIRaMoPDwYqUu6Jf3l-AlUbC" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Source Code</a>
+                            <!-- <a href="https://drive.google.com/file/d/1DRcL0ks-hieYm8Sep8H3YoD4dxx-foCA/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Description</a> -->
+                            <a href="live-link" style="text-decoration: none; color: blue; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>See Live</a>
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Binary Image Classification on Fashion MNIST with TensorFlow-Quntum and Cirq (Quantum Machine Learning)
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="https://drive.google.com/file/d/1feWtl7jNS_2GTB_4dnzI_KjilBJJ-qQC/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Project Report</a>
+                            <a href="https://colab.research.google.com/drive/1qhveoERTJgTWa18IXq_PnDDbzxgzGT_i?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Source Code</a>
+                            <!-- <a href="https://drive.google.com/file/d/1xIyeBotmn9vZhVDcI1rUtSSoX4ucPrIt/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Description</a> -->
+                            <a href="live-link" style="text-decoration: none; color: blue; pointer-events: none; color: gray; cursor: not-allowed;" target=”_blank”>See Live</a>
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Implementation of Online Examination System Enviornment in Telegram Bot
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="https://drive.google.com/file/d/1YHqZw2f2HAbaiZtcp8BVQLYn-iDbBCFM/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Project Report</a>
+                            <a href="https://drive.google.com/drive/folders/19C5xOwkWNFVhyOQgc4RireCKnuVeUDNc?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Source Code</a>
+                            <a href="https://drive.google.com/file/d/19QaLo7jx-7srf0pbQoIgDjWGS2EzScMZ/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Flow Chart</a>
+                            <a href="t.me/examjambot" style="text-decoration: none; color: blue;" target=”_blank”>See Live</a>
+                        </p>
+                        <br>
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">
+                            Implementation of Email-Box Enviornment in Telegram Bot
+                        </p>
+                        <p style="font-size: 12px; margin: 0; padding-top: 5px;">
+                            <a href="https://drive.google.com/file/d/1K-RZadsaBY13493EStGo146ArsBSqLqv/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Project Report</a>
+                            <a href="https://drive.google.com/drive/folders/1WvFg2XCIQjkpzX45v_lVVH62y9yzo4Oz?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Source Code</a>
+                            <a href="https://drive.google.com/file/d/11NrCKSKIt9L2yoxmivVgatBxzIGh7Mb_/view?usp=sharing" style="text-decoration: none; color: blue; margin-right: 10px;" target=”_blank”>Flow Chart</a>
+                            <a href="t.me/email_train_bot" style="text-decoration: none; color: blue;" target=”_blank”>See Live</a>
+                        </p>
+                    </div>
+                        <img src="vijay.png" alt="Vijay Joshi" class="profile-image">
+                    </div>
+            </section>
+            <section id="contact">
+                <div class="home-container">
+                    <div class="home-content">
+                        <h1 class="name-heading">Vijay Joshi</h1>
+                        <p class="name-subheading">Master of Science, Physics</p>
+                        <br>
+                        <div style="font-size: 14px; line-height: 1.6;">
+                            <p style="margin: 0; font-weight: bold;">Current Address:</p>
+                            <p style="margin: 5px 0;">Hauz Khas, New Delhi, 110016, Delhi, India</p>
+                            
+                            <p style="margin: 0; font-weight: bold;">Permanent Address:</p>
+                            <p style="margin: 5px 0;">Haldwani, 263139, Uttarakhand, India</p>
+                            
+                            <p style="margin: 0; font-weight: bold;">Contact Number:</p>
+                            <p style="margin: 5px 0;">+91 7310683567</p>
+                            
+                            <p style="margin: 0; font-weight: bold;">Email:</p>
+                            <p style="margin: 5px 0;">
+                                <a href="#" style="color: blue; text-decoration: none;">vijayjoshi1550@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <img src="vijay.png" alt="Vijay Joshi" class="profile-image">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>Email: vijayjoshi1550@gmail.com | Phone: +91 7310683567</p>
+    </footer>
+</body>
+</html>
